@@ -47,9 +47,39 @@ void Control_flow_statements() {
   }
 }
 
+void Functions() {
+  //函数 （https://dart.dev/samples#functions）
+  //在此，我希望能测试一下“是否可以在函数内部定义函数”
+  int fibonacci(int n) {
+    if (n == 0 || n == 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+  //经过测试，发现可以在函数中定义函数
+
+  var result = fibonacci(20);
+  //打印以检查是否正常运行
+  print(result);
+
+  //测试匿名函数
+  var flybyObjects = ['Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+  flybyObjects.where((name) => name.contains('trun')).forEach(print);
+}
+
+//另一个匿名函数的实现方式，在main函数中调用
+var a = () => print('hello in a');
+
 void main() {
   //变量
+  print("——————第一部分：变量—————————————————————————");
   Variables();
-  print("————————————————————————————————————————————");
+  print("——————第二部分：控制流———————————————————————");
   Control_flow_statements();
+  print("——————第三部分：函数—————————————————————————");
+  Functions();
+  print("——————另一种匿名函数的实现方式的测试——————————");
+  a();
+  print("——————把“函数”看作对象的测试—————————————————");
+  //在Dart中，“函数”本身也是一个对象，可以实例化
+  var b = Functions;
+  b();
 }
