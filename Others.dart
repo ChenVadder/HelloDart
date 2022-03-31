@@ -68,6 +68,21 @@ void Functions() {
 //另一个匿名函数的实现方式，在main函数中调用
 var a = () => print('hello in a');
 
+void Comment() {
+  //注释 （https://dart.dev/samples#comments）
+  print('单行注释和多行注释的范式和C语言一致。\n三斜杠表示文档注释。');
+  //既可以用双斜杠来单行注释。
+  /*
+  也可以用
+  斜杠加星号的形式
+  实现多行注释
+  */
+  //以下为文档注释的官方介绍
+  /// This is a documentation comment, used to document libraries,
+  /// classes, and their members. Tools like IDEs and dartdoc treat
+  /// doc comments specially.
+}
+
 void main() {
   //变量
   print("——————第一部分：变量—————————————————————————");
@@ -83,11 +98,5 @@ void main() {
   var b = Functions;
   b();
   print("——————第四部分：注释—————————————————————————");
-  print('注释的范式和C语言一致。');
-  //既可以用双斜杠来单行注释。
-  /*
-  也可以用
-  斜杠加星号的形式
-  实现多行注释
-  */
+  Comment();
 }
