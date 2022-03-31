@@ -1,3 +1,6 @@
+//这是第五部分：导入
+import 'dart:math';
+
 void Variables() {
   // 变量 (https://dart.dev/samples#variables)
   var name = 'Voyager I';
@@ -83,6 +86,15 @@ void Comment() {
   /// doc comments specially.
 }
 
+void Imports() {
+  print("本部分的文档中介绍了导入库、包、文件的方法，但是由于目前还为有自己的包或文件，故仅导入一个math库，在文件最开始处。");
+  print("另：以注释的形式介绍导入包或文件的范式。");
+  /*
+  Importing libraries from external packages:import 'package:test/test.dart';
+  Importing files:                           import 'path/to/my_other_file.dart';
+  */
+}
+
 void main() {
   //变量
   print("——————第一部分：变量—————————————————————————");
@@ -99,4 +111,6 @@ void main() {
   b();
   print("——————第四部分：注释—————————————————————————");
   Comment();
+  print("——————第五部分：导入—————————————————————————");
+  Imports();
 }
