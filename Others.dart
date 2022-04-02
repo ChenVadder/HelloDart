@@ -1,5 +1,6 @@
 //这是第五部分：导入
 import 'dart:math';
+import 'Spacecraft.class';
 
 void Variables() {
   // 变量 (https://dart.dev/samples#variables)
@@ -95,6 +96,14 @@ void Imports() {
   */
 }
 
+void Classes() {
+  var voyager = Spacecraft('Voyage I', DateTime(1977, 9, 5));
+  voyager.describe();
+
+  var voyager3 = Spacecraft.unlaunched('Voyager III');
+  voyager3.describe();
+}
+
 void main() {
   //变量
   print("——————第一部分：变量—————————————————————————");
@@ -113,4 +122,7 @@ void main() {
   Comment();
   print("——————第五部分：导入—————————————————————————");
   Imports();
+  print("——————第六部分：类———————————————————————————");
+  Classes();
+  
 }
