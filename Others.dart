@@ -97,6 +97,7 @@ void Imports() {
 }
 
 void Classes() {
+  //类 （https://dart.dev/samples#classes）
   var voyager = Spacecraft('Voyage I', DateTime(1977, 9, 5));
   voyager.describe();
 
@@ -104,7 +105,35 @@ void Classes() {
   voyager3.describe();
 }
 
+class Orbiter extends Spacecraft {
+  double altitude;
+
+  Orbiter(String name, DateTime launchDate, this.altitude)
+      : super(name, launchDate);
+
+  //尝试重载方法
+  void describe() {
+    print('Orbiter:$name');
+    var launchDate = this.launchDate;
+    if (launchDate != null) {
+      int years = DateTime.now().difference(launchDate).inDays ~/ 365;
+      print('Launched:$launchYear($years years ago)');
+    } else {
+      print('Unlaunched');
+    }
+    print('altitude:$altitude');
+  }
+}
+
+void Inheritance() {
+  //拓展 （https://dart.dev/samples#inheritance)
+  var Test = Orbiter('Test', DateTime(2022, 4, 3), 1234.56);
+  Test.describe();
+}
+
 void main() {
+  //brew tap dart-lang/dart && brew install dart
+
   //变量
   print("——————第一部分：变量—————————————————————————");
   Variables();
@@ -124,5 +153,6 @@ void main() {
   Imports();
   print("——————第六部分：类———————————————————————————");
   Classes();
-  
+  print("——————第七部分：拓展—————————————————————————");
+  Inheritance();
 }
