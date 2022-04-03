@@ -153,6 +153,50 @@ void Minxin() {
   Test2.describeCrew();
 }
 
+class MockSpaceship implements Spacecraft {
+  void statement() {
+    print('MockSpaceship 实现了 Spacecraft接口');
+  }
+
+
+  @override
+  noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}
+
+abstract class Describable {
+  void describe();
+
+  void describeWithEmphasis() {
+    print('=========');
+    describe();
+    print('=========');
+  }
+}
+
+class TEST3 implements Describable {
+  String name;
+  TEST3(this.name) {
+    this.name = name;
+  }
+  void describe() {
+    print('$name 拓展了抽象类 Descriable,并实现了describe()方法');
+  }
+void describeWithEmphasis() {
+    print('=========');
+    describe();
+    print('=========');
+  }
+  
+}
+
+void Interfaces_and_abstract_classes() {
+  var mock = MockSpaceship();
+  mock.statement();
+
+  var Test3 = TEST3('Test3');
+  Test3.describeWithEmphasis();
+}
+
 void main() {
   //brew tap dart-lang/dart && brew install dart
 
@@ -179,4 +223,6 @@ void main() {
   Inheritance();
   print("——————第八部分：Minxin———————————————————————");
   Minxin();
+  print("——————第九部分：接口和抽象类—————————————————");
+  Interfaces_and_abstract_classes();
 }
