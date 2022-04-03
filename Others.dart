@@ -131,6 +131,28 @@ void Inheritance() {
   Test.describe();
 }
 
+mixin Piloted {
+  int astronauts = 1;
+
+  void describeCrew() {
+    print('Number of astronauts:$astronauts');
+  }
+}
+
+class PilotedCraft extends Spacecraft with Piloted {
+  PilotedCraft(String name, DateTime launchDate) : super(name, launchDate);
+
+  void describe2() {
+    print('Astronauts of PolotedCraft:$astronauts');
+  }
+}
+
+void Minxin() {
+  var Test2 = PilotedCraft("Test2", DateTime(2022, 4, 3));
+  Test2.describe2();
+  Test2.describeCrew();
+}
+
 void main() {
   //brew tap dart-lang/dart && brew install dart
 
@@ -155,4 +177,6 @@ void main() {
   Classes();
   print("——————第七部分：拓展—————————————————————————");
   Inheritance();
+  print("——————第八部分：Minxin———————————————————————");
+  Minxin();
 }
