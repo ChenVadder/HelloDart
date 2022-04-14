@@ -1,0 +1,19 @@
+打印40个“#”：print('#' * 40);
+
+flybyObjects.where((name) => name.contains('turn')).forEach(print);
+(name) => name.contains('turn')：name作为参数出入一个匿名函数， name.contains('turn')：筛选出包含'turn'的——函数变成了一种对象；flybyObjects.where().forEach(print)：把被筛选出来的进行打印。
+    Q：where是干什么的？
+
+DateTime？ launchDate：？的用处就是告诉编译器我故意不赋初始值的，否则报错。
+    Q：int? get launchYear => launchDate?.year;是什么意思？
+
+在注释中写“TODO：”会提醒你别忘了做。
+
+Spacecraft.unlaunched(String name):this(name,null);重载构造函数：unlaunched
+
+int years = DateTime.now().difference(launchDate).inDays ~/365;
+~/：整除（商）；%：取模（余数）
+
+    Q:override是什么？
+
+mixins:注入，使其拥有某种东西。（相当于疫苗）
