@@ -1,6 +1,7 @@
 //这是第五部分：导入
 import 'dart:math';
 import 'Spacecraft.class';
+import 'dart:async';
 
 void Variables() {
   // 变量 (https://dart.dev/samples#variables)
@@ -197,7 +198,52 @@ void Interfaces_and_abstract_classes() {
   Test3.describeWithEmphasis();
 }
 
-void main() {
+Future<void> Async() async{
+  //异步（https://dart.dev/samples#async）
+  
+  const oneSecond = Duration(seconds: 1);
+  Future<void> printWithDelay1(String message) async {
+    await Future.delayed(oneSecond);
+    print(message);
+  }
+  printWithDelay1('过了1秒钟. 1');
+  print('Method 1.');
+
+  Future<void> printWithDelay2(String message) {
+    return Future.delayed(oneSecond).then((_) {
+      print(message);
+    });
+  }
+  printWithDelay2('又过了1秒钟. 2');
+  print('Method 2.');  
+
+  Future<void> createDescriptions(Iterable<String> objects) async {
+    for (final object in objects) {
+      try {
+        var file = File('$object.txt');
+        if (await file.exists()) {
+          var modified = await file.lastModified();
+          print(
+              'File for $object already exists. It was modified on $modified.');
+          continue;
+        }
+        await file.create();
+        await file.writeAsString('Start Describing $object in this file.');
+        print('File for $object created.');
+      } on IOException catch (e) {
+        print('Cannot create description for $object: $e');
+      }
+    }
+  }
+
+  var the_objects = ['Test1', 'aaaa', '略略'];
+  createDescriptions(the_objects);
+
+  await Future.delayed(Duration(seconds: 5));
+}
+
+
+Future<void> main() async {
   //brew tap dart-lang/dart && brew install dart
 
   //变量
@@ -225,4 +271,6 @@ void main() {
   Minxin();
   print("——————第九部分：接口和抽象类—————————————————");
   Interfaces_and_abstract_classes();
+  print("——————第十部分：异步—————————————————————————");
+  await Async();
 }
