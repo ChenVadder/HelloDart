@@ -213,6 +213,10 @@ void Maps() {
   assert(teamAssignments['Catcher'] != null);
 }
 
+void URI() {
+  //URIs (https://dart.cn/guides/libraries/library-tour#uris)
+}
+
 void main() {
   print('*' * 50);
   print('本次学习Dart的核心类库');
