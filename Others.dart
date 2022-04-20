@@ -160,7 +160,6 @@ class MockSpaceship implements Spacecraft {
     print('MockSpaceship 实现了 Spacecraft接口');
   }
 
-
   @override
   noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
@@ -183,12 +182,12 @@ class TEST3 implements Describable {
   void describe() {
     print('$name 拓展了抽象类 Descriable,并实现了describe()方法');
   }
-void describeWithEmphasis() {
+
+  void describeWithEmphasis() {
     print('=========');
     describe();
     print('=========');
   }
-  
 }
 
 void Interfaces_and_abstract_classes() {
@@ -199,14 +198,15 @@ void Interfaces_and_abstract_classes() {
   Test3.describeWithEmphasis();
 }
 
-Future<void> Async() async{
+Future<void> Async() async {
   //异步（https://dart.dev/samples#async）
-  
+
   const oneSecond = Duration(seconds: 1);
   Future<void> printWithDelay1(String message) async {
     await Future.delayed(oneSecond);
     print(message);
   }
+
   printWithDelay1('过了1秒钟. 1');
   print('Method 1.');
 
@@ -215,8 +215,9 @@ Future<void> Async() async{
       print(message);
     });
   }
+
   printWithDelay2('又过了1秒钟. 2');
-  print('Method 2.');  
+  print('Method 2.');
 
   Future<void> createDescriptions(Iterable<String> objects) async {
     for (final object in objects) {
@@ -259,12 +260,9 @@ Future<void> show(flybyObjects) async {
 void Exceptions() {
   //异常（https://dart.dev/samples#exceptions）
 
-
   var flybyObjects = ['Test1', 'aaaa', '略略'];
   show(flybyObjects);
 }
-
-
 
 Future<void> main() async {
   //brew tap dart-lang/dart && brew install dart
