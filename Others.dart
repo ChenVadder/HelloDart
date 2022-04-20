@@ -1,4 +1,5 @@
 //这是第五部分：导入
+import 'dart:io';
 import 'dart:math';
 import 'Spacecraft.class';
 import 'dart:async';
@@ -241,6 +242,28 @@ Future<void> Async() async{
 
   await Future.delayed(Duration(seconds: 5));
 }
+
+Future<void> show(flybyObjects) async {
+  try {
+    for (final object in flybyObjects) {
+      var description = await File('$object.txt').readAsString();
+      print(description);
+    }
+  } on IOException catch (ex) {
+    print('Could not describe object: $ex');
+  } finally {
+    flybyObjects.clear();
+  }
+}
+
+void Exceptions() {
+  //异常（https://dart.dev/samples#exceptions）
+
+
+  var flybyObjects = ['Test1', 'aaaa', '略略'];
+  show(flybyObjects);
+}
+
 
 
 Future<void> main() async {
