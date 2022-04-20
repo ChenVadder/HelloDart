@@ -93,6 +93,7 @@ void Lists() {
   fruits.addAll(['grapes', 'bananas']);
 
   assert(fruits.length == 5);
+  print(fruits);
 
   //查找元素，返回下标
   var appleIndex = fruits.indexOf('apples');
@@ -160,8 +161,69 @@ void Sets() {
   assert(intersection.contains('xenon'));
 }
 
+void Maps() {
+  //map （https://dart.cn/guides/libraries/library-tour#collections）
+  var hawaiianBeaches = {
+    'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
+    'Big Island': ['Wailea Bay', 'Pololu Beach'],
+    'Kauai': ['Hanalei', 'Poipu']
+  };
+
+  var searchTerms = Map();
+  //可以规定键值的类型
+  var nobleGases = Map<int, String>();
+  nobleGases = {54: 'xenon'};
+  assert(nobleGases[54] == 'xenon');
+  //检查是否包含某个键
+  assert(nobleGases.containsKey(54));
+
+  //移除
+  nobleGases.remove(54);
+  assert(!nobleGases.containsKey(54));
+
+  hawaiianBeaches = {
+    'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
+    'Big Island': ['Wailea Bay', 'Pololu Beach'],
+    'Kauai': ['Hanalei', 'Poipu']
+  };
+
+  //可取出所有的键或所有的值
+  var keys = hawaiianBeaches.keys;
+  assert(keys.length == 3);
+  assert(Set.from(keys).contains('Oahu'));
+  print(keys);
+  var values = hawaiianBeaches.values;
+  assert(values.length == 3);
+  assert(values.any((v) => v.contains('Waikiki')));
+
+  hawaiianBeaches = {
+    'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
+    'Big Island': ['Wailea Bay', 'Pololu Beach'],
+    'Kauai': ['Hanalei', 'Poipu']
+  };
+  assert(hawaiianBeaches.containsKey('Oahu'));
+  assert(!hawaiianBeaches.containsKey('Florida'));
+
+  var teamAssignments = <String, String>{};
+  String pickToughestKid() {
+    return "pickToughestKid";
+  }
+
+  teamAssignments.putIfAbsent('Catcher', () => pickToughestKid());
+  assert(teamAssignments['Catcher'] != null);
+}
+
 void main() {
   print('*' * 50);
   print('本次学习Dart的核心类库');
   print('*' * 50);
+
+  print("——————第一部分：数字集合字符串—————————————————————————");
+  numbers_numbers_collections_strings_and_more();
+  print("——————第二部分：列表—————————————————————————");
+  Lists();
+  print("——————第三部分：集合—————————————————————————");
+  Sets();
+  print("——————第四部分：Map—————————————————————————");
+  Maps();
 }
