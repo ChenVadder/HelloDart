@@ -17,3 +17,7 @@ int years = DateTime.now().difference(launchDate).inDays ~/365;
     Q:override是什么？
 
 mixins:注入，使其拥有某种东西。（相当于疫苗）
+
+
+用VScode写，好麻烦
+
