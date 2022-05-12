@@ -56,9 +56,9 @@ Future<void> dcat(paths, {bool showLineNumbers = false}) async {
   }
 }
 
-_handleError(String path) async {
+Future<void> _handleError(String path) async {
   if (await FileSystemEntity.isDirectory(path)) {
-    stderr.writeln('Error:$path is a directory');
+    stderr.writeln('Error: $path is a directory.');
   } else {
     exitCode = 2;
   }
